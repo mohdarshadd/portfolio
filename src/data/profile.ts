@@ -1,0 +1,27 @@
+export const profile = {
+  name: "Mohd Arshad Ansari",
+  role: "Full Stack Developer",
+  location: "Lucknow, Uttar Pradesh",
+  pincode: "226021",
+  email: "mohdarshad1034@gmail.com",
+  phone: "+91 83958 50798",
+  github: "https://github.com/mohdarshadd",
+  linkedin: "https://linkedin.com/in/mohdarshadd",
+  tagline: "Building at the intersection of code and creativity.",
+  objective:
+    "Aspiring Full-Stack Developer with hands-on experience in MERN stack development and frontend engineering. Skilled in building responsive web applications, integrating backend services, and creating user-focused interfaces. Strong foundation in Java, Python, JavaScript, MongoDB, and Express.js with a passion for problem-solving, collaboration, and continuous learning.",
+  bio: [
+    "I'm Mohd Arshad Ansari, an aspiring Full-Stack Developer based in",
+    "Lucknow, Uttar Pradesh. Currently pursuing my BCA at the University",
+    "of Lucknow, I specialize in the MERN stack with a growing passion",
+    "for AI engineering and cloud technologies.",
+    "",
+    "My journey began with HTML, CSS, and JavaScript, evolved into",
+    "React.js and Node.js, and now I'm diving deeper into AI-driven",
+    "development. I believe in writing clean code, building user-focused",
+    "interfaces, and contributing to meaningful projects.",
+    "",
+    "When I'm not coding, you'll find me solving DSA problems,",
+    "contributing to open source, or exploring new technologies.",
+  ],
+};
