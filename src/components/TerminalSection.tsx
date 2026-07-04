@@ -11,7 +11,7 @@ export function TerminalSection({
   title?: string;
 }) {
   return (
-    <div className="w-full max-w-4xl mx-auto mb-6 bg-bg-primary/90 backdrop-blur-sm border border-border rounded-lg shadow-[0_10px_30px_rgba(0,0,0,0.4)] overflow-hidden">
+    <div className="w-full max-w-4xl mx-auto mb-10 bg-bg-primary/90 backdrop-blur-sm border border-border rounded-lg shadow-[0_10px_30px_rgba(0,0,0,0.4)] overflow-hidden">
       <div className="h-8 bg-bg-window/90 border-b border-border flex items-center px-3 relative shrink-0">
         <div className="flex gap-[6px] items-center shrink-0">
           <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]" />
