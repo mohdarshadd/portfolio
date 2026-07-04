@@ -296,7 +296,7 @@ export default function Portfolio() {
             📦 GitHub
           </a>
           <a
-            href="/resume.pdf"
+            href="/Arshad's%20Resume.pdf"
             target="_blank"
             className="text-fg-cyan hover:text-fg-green underline decoration-dotted underline-offset-2 transition-colors text-xs sm:text-sm"
           >

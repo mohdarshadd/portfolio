@@ -18,7 +18,7 @@ export const projects: Project[] = [
       "Integrated OCR and AI to extract, analyze, and explain complex government notices",
       "Built REST APIs and a responsive dashboard for document management and deadline tracking",
     ],
-    github: "https://github.com/mohdarshadd/formsahay",
+    github: "https://github.com/B2Aryan/FormSahay_Portal",
   },
   {
     name: "AI Resume Builder",
@@ -40,7 +40,7 @@ export const projects: Project[] = [
       "Smart pod booking system with real-time availability and navigation",
       "Hackathon winning project with dark-mode UI and futuristic design",
     ],
-    github: "https://github.com/mohdarshadd/symbi-city",
+    github: "https://github.com/mohdarshadd/symbiotic-city-project-2070",
     hackathonWinner: true,
   },
 ];
