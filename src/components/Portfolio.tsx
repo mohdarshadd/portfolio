@@ -175,24 +175,32 @@ export default function Portfolio() {
           <span className="text-fg-dim">:~$ </span>
           <span className="text-fg-primary">cat skills.json</span>
         </div>
-        <div className="text-border text-xs mb-3">{"─".repeat(72)}</div>
-        <div className="space-y-3">
+        <div className="text-xs sm:text-sm leading-relaxed whitespace-pre font-mono">
+          <span className="text-fg-dim">{`{\n`}</span>
           {technicalSkills.map((cat, i) => (
-            <div key={i}>
-              <div className="flex flex-wrap items-baseline gap-1">
-                <span className="text-fg-cyan shrink-0 text-xs sm:text-sm font-semibold">
-                  "{cat.category}":
-                </span>
-                <span className="text-fg-dim text-xs sm:text-sm">[</span>
-                {cat.skills.map((skill, j) => (
-                  <span key={skill} className="text-fg-primary text-xs sm:text-sm">
-                    "{skill}"{j < cat.skills.length - 1 ? ", " : ""}
+            <span key={i}>
+              <span className="text-fg-dim">{`  "`}</span>
+              <span className="text-fg-cyan">{cat.category}</span>
+              <span className="text-fg-dim">{`": [\n`}</span>
+              {cat.skills.map((skill, j) => (
+                <span key={skill}>
+                  <span className="text-fg-dim">{`    "`}</span>
+                  <span className="text-fg-yellow">{skill}</span>
+                  <span className="text-fg-dim">{`"`}</span>
+                  <span className="text-fg-dim">
+                    {j < cat.skills.length - 1 ? "," : ""}
                   </span>
-                ))}
-                <span className="text-fg-dim text-xs sm:text-sm">]</span>
-              </div>
-            </div>
+                  <span className="text-fg-dim">{"\n"}</span>
+                </span>
+              ))}
+              <span className="text-fg-dim">{`  ]`}</span>
+              <span className="text-fg-dim">
+                {i < technicalSkills.length - 1 ? "," : ""}
+              </span>
+              <span className="text-fg-dim">{"\n"}</span>
+            </span>
           ))}
+          <span className="text-fg-dim">{`}`}</span>
         </div>
       </TerminalSection>
 
