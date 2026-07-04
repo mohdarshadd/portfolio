@@ -35,7 +35,7 @@ function Bullet({ text }: { text: string }) {
 
 export default function Portfolio() {
   return (
-    <div className="w-full min-h-screen py-6 sm:py-10 px-3 sm:px-6 relative z-10">
+    <div className="w-full min-h-screen pt-10 sm:pt-16 pb-6 sm:pb-10 px-3 sm:px-6 relative z-10">
       {/* ──────────── Hero ──────────── */}
       <TerminalSection>
         <div className="flex flex-col sm:flex-row items-start gap-5">
