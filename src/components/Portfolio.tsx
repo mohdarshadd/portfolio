@@ -6,21 +6,7 @@ import { experiences } from "@/data/experience";
 import { projects } from "@/data/projects";
 import { educationEntries } from "@/data/education";
 import { certifications } from "@/data/certifications";
-import { TerminalWindow } from "@/components/terminal/TerminalWindow";
-
-function Prompt({ cmd }: { cmd: string }) {
-  return (
-    <div className="text-fg-green select-none mt-6 mb-2">
-      <span className="text-fg-green">arshad@portfolio</span>
-      <span className="text-fg-dim">:~$ </span>
-      <span className="text-fg-primary">{cmd}</span>
-    </div>
-  );
-}
-
-function SectionDivider() {
-  return <div className="text-border my-6">{"─".repeat(80)}</div>;
-}
+import { TerminalSection } from "@/components/TerminalSection";
 
 function Tag({ children }: { children: string }) {
   return (
@@ -38,226 +24,278 @@ function TechTag({ children }: { children: string }) {
   );
 }
 
+function Bullet({ text }: { text: string }) {
+  return (
+    <div className="text-fg-primary text-sm flex">
+      <span className="text-fg-dim mr-2 shrink-0">•</span>
+      <span>{text}</span>
+    </div>
+  );
+}
+
 export default function Portfolio() {
   return (
-    <TerminalWindow>
+    <div className="w-full min-h-screen bg-bg-primary py-6 sm:py-10 px-3 sm:px-6">
       {/* ──────────── Hero ──────────── */}
-      <div className="flex flex-col sm:flex-row items-start gap-5 mb-4">
-        <div className="shrink-0">
-          <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-border">
-            <img
-              src="/Arshad-profile-photo.jpeg"
-              alt={profile.name}
-              className="w-full h-full object-cover"
-            />
+      <TerminalSection>
+        <div className="flex flex-col sm:flex-row items-start gap-5">
+          <div className="shrink-0">
+            <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-2 border-border">
+              <img
+                src="/Arshad-profile-photo.jpeg"
+                alt={profile.name}
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
-        </div>
-        <div className="flex-1 min-w-0">
-          <div className="text-fg-green select-none text-sm mb-1">
-            <span className="text-fg-green">arshad@portfolio</span>
-            <span className="text-fg-dim">:~$ </span>
-            <span className="text-fg-primary">whoami</span>
-          </div>
-          <div className="text-fg-magenta font-bold text-xl sm:text-2xl mb-1">
-            {profile.name}
-          </div>
-          <div className="text-fg-green select-none text-sm mb-1 mt-3">
-            <span className="text-fg-green">arshad@portfolio</span>
-            <span className="text-fg-dim">:~$ </span>
-            <span className="text-fg-primary">cat role.txt</span>
-          </div>
-          <div className="text-fg-cyan text-base sm:text-lg font-semibold">
-            {"> "}{profile.role}
-          </div>
-          <div className="text-fg-green select-none text-sm mb-1 mt-3">
-            <span className="text-fg-green">arshad@portfolio</span>
-            <span className="text-fg-dim">:~$ </span>
-            <span className="text-fg-primary">./current-focus</span>
-          </div>
-          <div className="flex flex-wrap gap-2 mt-1">
-            <Tag>MERN Stack</Tag>
-            <Tag>AI Engineering</Tag>
-            <Tag>LLM APIs</Tag>
-            <Tag>Cloud Technologies</Tag>
-          </div>
-        </div>
-      </div>
+          <div className="flex-1 min-w-0">
+            <div className="text-fg-green select-none text-xs sm:text-sm mb-1">
+              <span className="text-fg-green">arshad@portfolio</span>
+              <span className="text-fg-dim">:~$ </span>
+              <span className="text-fg-primary">whoami</span>
+            </div>
+            <div className="text-fg-magenta font-bold text-lg sm:text-xl mb-1">
+              {profile.name}
+            </div>
 
-      <SectionDivider />
+            <div className="text-fg-green select-none text-xs sm:text-sm mb-1 mt-3">
+              <span className="text-fg-green">arshad@portfolio</span>
+              <span className="text-fg-dim">:~$ </span>
+              <span className="text-fg-primary">cat role.txt</span>
+            </div>
+            <div className="text-fg-cyan text-sm sm:text-base font-semibold">
+              {"> "}{profile.role}
+            </div>
+
+            <div className="text-fg-green select-none text-xs sm:text-sm mb-1 mt-3">
+              <span className="text-fg-green">arshad@portfolio</span>
+              <span className="text-fg-dim">:~$ </span>
+              <span className="text-fg-primary">./current-focus</span>
+            </div>
+            <div className="flex flex-wrap gap-2 mt-1">
+              <Tag>MERN Stack</Tag>
+              <Tag>AI Engineering</Tag>
+              <Tag>LLM APIs</Tag>
+              <Tag>Cloud Technologies</Tag>
+            </div>
+          </div>
+        </div>
+      </TerminalSection>
 
       {/* ──────────── About ──────────── */}
-      <Prompt cmd="cat about.txt" />
-      <div className="text-fg-primary leading-relaxed">
-        <p>{profile.objective}</p>
-      </div>
-
-      <SectionDivider />
+      <TerminalSection title="arshad@portfolio — about">
+        <div className="text-fg-green select-none text-xs sm:text-sm mb-2">
+          <span className="text-fg-green">arshad@portfolio</span>
+          <span className="text-fg-dim">:~$ </span>
+          <span className="text-fg-primary">cat about.txt</span>
+        </div>
+        <div className="text-fg-primary leading-relaxed text-sm">
+          <p>{profile.objective}</p>
+        </div>
+      </TerminalSection>
 
       {/* ──────────── Experience ──────────── */}
-      <Prompt cmd="ls -la ~/experience" />
-      <div className="text-border text-xs mb-2">{"─".repeat(80)}</div>
-      {experiences.map((exp, i) => (
-        <div key={i} className="mb-5">
-          <div className="flex flex-col sm:flex-row sm:items-center gap-0 sm:gap-2 mb-1">
-            <span className="text-fg-yellow text-sm shrink-0">[{exp.period}]</span>
-            <span className="text-fg-cyan font-bold">{exp.role}</span>
-            <span className="text-fg-dim text-sm">{"→"} {exp.company}</span>
-          </div>
-          <div className="ml-4 mt-1 space-y-0.5">
-            {exp.bullets.map((b, j) => (
-              <div key={j} className="text-fg-primary text-sm flex">
-                <span className="text-fg-dim mr-2 shrink-0">•</span>
-                <span>{b}</span>
-              </div>
-            ))}
-          </div>
+      <TerminalSection title="arshad@portfolio — experience">
+        <div className="text-fg-green select-none text-xs sm:text-sm mb-3">
+          <span className="text-fg-green">arshad@portfolio</span>
+          <span className="text-fg-dim">:~$ </span>
+          <span className="text-fg-primary">ls -la ~/experience</span>
         </div>
-      ))}
-
-      <SectionDivider />
+        <div className="text-border text-xs mb-3">{"─".repeat(72)}</div>
+        {experiences.map((exp, i) => (
+          <div key={i} className="mb-4 last:mb-0">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-0 sm:gap-2 mb-1">
+              <span className="text-fg-yellow text-xs sm:text-sm shrink-0">
+                [{exp.period}]
+              </span>
+              <span className="text-fg-cyan font-bold text-sm">
+                {exp.role}
+              </span>
+              <span className="text-fg-dim text-xs sm:text-sm">
+                {"→"} {exp.company}
+              </span>
+            </div>
+            <div className="ml-3 sm:ml-4 mt-1 space-y-0.5">
+              {exp.bullets.map((b, j) => (
+                <Bullet key={j} text={b} />
+              ))}
+            </div>
+          </div>
+        ))}
+      </TerminalSection>
 
       {/* ──────────── Projects ──────────── */}
-      <Prompt cmd="cat projects.json" />
-      <div className="text-border text-xs mb-2">{"─".repeat(80)}</div>
-      {projects.map((p, i) => (
-        <div key={i} className="mb-5 p-4 border border-border rounded">
-          <div className="flex items-center gap-2 mb-2">
-            <span className="text-fg-green font-bold">{">"}</span>
-            <span className="text-fg-cyan font-bold">{p.name}</span>
-            {p.hackathonWinner && (
-              <span className="text-xs text-fg-yellow border border-fg-yellow/30 px-1.5 py-0.5 rounded">
-                🏆 Winner
-              </span>
-            )}
-          </div>
-          <div className="text-fg-primary text-sm mb-2">{p.description}</div>
-          <div className="flex flex-wrap mb-2">
-            {p.tech.map((t) => (
-              <TechTag key={t}>{t}</TechTag>
-            ))}
-          </div>
-          <div className="flex gap-3 text-sm">
+      <TerminalSection title="arshad@portfolio — projects">
+        <div className="text-fg-green select-none text-xs sm:text-sm mb-3">
+          <span className="text-fg-green">arshad@portfolio</span>
+          <span className="text-fg-dim">:~$ </span>
+          <span className="text-fg-primary">cat projects.json</span>
+        </div>
+        <div className="text-border text-xs mb-3">{"─".repeat(72)}</div>
+        {projects.map((p, i) => (
+          <div
+            key={i}
+            className="mb-4 last:mb-0 p-3 sm:p-4 border border-border rounded"
+          >
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-fg-green font-bold">{">"}</span>
+              <span className="text-fg-cyan font-bold text-sm">{p.name}</span>
+              {p.hackathonWinner && (
+                <span className="text-[10px] sm:text-xs text-fg-yellow border border-fg-yellow/30 px-1.5 py-0.5 rounded">
+                  🏆 Winner
+                </span>
+              )}
+            </div>
+            <div className="text-fg-primary text-xs sm:text-sm mb-2">
+              {p.description}
+            </div>
+            <div className="flex flex-wrap mb-2">
+              {p.tech.map((t) => (
+                <TechTag key={t}>{t}</TechTag>
+              ))}
+            </div>
             {p.github && (
               <a
                 href={p.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-fg-cyan hover:text-fg-green underline decoration-dotted underline-offset-2 transition-colors"
+                className="text-fg-cyan hover:text-fg-green underline decoration-dotted underline-offset-2 transition-colors text-xs sm:text-sm"
               >
                 📦 Repository →
               </a>
             )}
           </div>
-        </div>
-      ))}
-
-      <SectionDivider />
+        ))}
+      </TerminalSection>
 
       {/* ──────────── Skills ──────────── */}
-      <Prompt cmd="cat skills.json" />
-      <div className="text-border text-xs mb-2">{"─".repeat(80)}</div>
-      <div className="space-y-3">
-        {technicalSkills.map((cat, i) => (
-          <div key={i}>
-            <div className="flex flex-wrap items-baseline gap-1">
-              <span className="text-fg-cyan shrink-0 text-sm font-semibold">
-                "{cat.category}":
-              </span>
-              <span className="text-fg-dim text-sm">[</span>
-              {cat.skills.map((skill, j) => (
-                <span key={skill} className="text-fg-primary text-sm">
-                  "{skill}"{j < cat.skills.length - 1 ? ", " : ""}
+      <TerminalSection title="arshad@portfolio — skills">
+        <div className="text-fg-green select-none text-xs sm:text-sm mb-3">
+          <span className="text-fg-green">arshad@portfolio</span>
+          <span className="text-fg-dim">:~$ </span>
+          <span className="text-fg-primary">cat skills.json</span>
+        </div>
+        <div className="text-border text-xs mb-3">{"─".repeat(72)}</div>
+        <div className="space-y-3">
+          {technicalSkills.map((cat, i) => (
+            <div key={i}>
+              <div className="flex flex-wrap items-baseline gap-1">
+                <span className="text-fg-cyan shrink-0 text-xs sm:text-sm font-semibold">
+                  "{cat.category}":
                 </span>
-              ))}
-              <span className="text-fg-dim text-sm">]</span>
+                <span className="text-fg-dim text-xs sm:text-sm">[</span>
+                {cat.skills.map((skill, j) => (
+                  <span key={skill} className="text-fg-primary text-xs sm:text-sm">
+                    "{skill}"{j < cat.skills.length - 1 ? ", " : ""}
+                  </span>
+                ))}
+                <span className="text-fg-dim text-xs sm:text-sm">]</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </TerminalSection>
+
+      {/* ──────────── Education ──────────── */}
+      <TerminalSection title="arshad@portfolio — education">
+        <div className="text-fg-green select-none text-xs sm:text-sm mb-3">
+          <span className="text-fg-green">arshad@portfolio</span>
+          <span className="text-fg-dim">:~$ </span>
+          <span className="text-fg-primary">cat education.md</span>
+        </div>
+        <div className="text-border text-xs mb-3">{"─".repeat(72)}</div>
+        {educationEntries.map((edu, i) => (
+          <div key={i} className="mb-3 last:mb-0">
+            <div className="text-fg-yellow text-xs sm:text-sm">
+              # {edu.institution}
+            </div>
+            <div className="ml-4 text-fg-primary text-xs sm:text-sm">
+              - {edu.degree}{" "}
+              {edu.score ? <span className="text-fg-dim">| {edu.score}</span> : ""}
+            </div>
+            <div className="ml-4 text-fg-dim text-xs sm:text-sm">
+              - {edu.year} • {edu.location}
             </div>
           </div>
         ))}
-      </div>
-
-      <SectionDivider />
-
-      {/* ──────────── Education ──────────── */}
-      <Prompt cmd="cat education.md" />
-      <div className="text-border text-xs mb-2">{"─".repeat(80)}</div>
-      {educationEntries.map((edu, i) => (
-        <div key={i} className="mb-3">
-          <div className="text-fg-yellow text-sm"># {edu.institution}</div>
-          <div className="ml-4 text-fg-primary text-sm">
-            - {edu.degree} {edu.score ? `| ${edu.score}` : ""}
-          </div>
-          <div className="ml-4 text-fg-dim text-sm">
-            - {edu.year} • {edu.location}
-          </div>
-        </div>
-      ))}
-
-      <SectionDivider />
+      </TerminalSection>
 
       {/* ──────────── Certifications ──────────── */}
-      <Prompt cmd="cat certifications.md" />
-      <div className="text-border text-xs mb-2">{"─".repeat(80)}</div>
-      {certifications.map((cert, i) => (
-        <div key={i} className="mb-2 flex items-center gap-2">
-          <span className="text-fg-green text-sm">✓</span>
-          <span className="text-fg-primary text-sm">{cert.name}</span>
-          <span className="text-fg-dim text-xs">({cert.year})</span>
-          <span className="text-fg-dim text-xs">— {cert.issuer}</span>
-          {cert.url && (
-            <a
-              href={cert.url}
-              className="text-fg-cyan hover:text-fg-green text-xs underline decoration-dotted underline-offset-2 transition-colors"
-            >
-              view
-            </a>
-          )}
+      <TerminalSection title="arshad@portfolio — certifications">
+        <div className="text-fg-green select-none text-xs sm:text-sm mb-3">
+          <span className="text-fg-green">arshad@portfolio</span>
+          <span className="text-fg-dim">:~$ </span>
+          <span className="text-fg-primary">cat certifications.md</span>
         </div>
-      ))}
-
-      <SectionDivider />
+        <div className="text-border text-xs mb-3">{"─".repeat(72)}</div>
+        {certifications.map((cert, i) => (
+          <div key={i} className="mb-2 last:mb-0 flex flex-wrap items-center gap-x-2 gap-y-0.5">
+            <span className="text-fg-green text-xs sm:text-sm">✓</span>
+            <span className="text-fg-primary text-xs sm:text-sm">
+              {cert.name}
+            </span>
+            <span className="text-fg-dim text-[10px] sm:text-xs">
+              ({cert.year})
+            </span>
+            <span className="text-fg-dim text-[10px] sm:text-xs">
+              — {cert.issuer}
+            </span>
+            {cert.url && (
+              <a
+                href={cert.url}
+                className="text-fg-cyan hover:text-fg-green text-[10px] sm:text-xs underline decoration-dotted underline-offset-2 transition-colors"
+              >
+                view
+              </a>
+            )}
+          </div>
+        ))}
+      </TerminalSection>
 
       {/* ──────────── Contact ──────────── */}
-      <Prompt cmd="./contact" />
-      <div className="text-fg-primary text-sm mb-3">
-        Open to AI engineering roles, full-stack development, and interesting projects.
-      </div>
-      <div className="flex flex-wrap gap-4">
-        <a
-          href={`mailto:${profile.email}`}
-          className="text-fg-cyan hover:text-fg-green underline decoration-dotted underline-offset-2 transition-colors text-sm"
-        >
-          📧 {profile.email}
-        </a>
-        <a
-          href={profile.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-fg-cyan hover:text-fg-green underline decoration-dotted underline-offset-2 transition-colors text-sm"
-        >
-          💼 Connect on LinkedIn
-        </a>
-        <a
-          href={profile.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-fg-cyan hover:text-fg-green underline decoration-dotted underline-offset-2 transition-colors text-sm"
-        >
-          📦 GitHub
-        </a>
-        <a
-          href="/resume.pdf"
-          target="_blank"
-          className="text-fg-cyan hover:text-fg-green underline decoration-dotted underline-offset-2 transition-colors text-sm"
-        >
-          📄 Resume
-        </a>
-      </div>
-
-      <div className="mt-8 text-fg-dim text-xs text-center select-none">
-        <span className="text-fg-green">arshad@portfolio</span>
-        <span className="text-fg-dim">:~$ </span>
-        <span className="animate-pulse">_</span>
-      </div>
-    </TerminalWindow>
+      <TerminalSection title="arshad@portfolio — contact">
+        <div className="text-fg-green select-none text-xs sm:text-sm mb-3">
+          <span className="text-fg-green">arshad@portfolio</span>
+          <span className="text-fg-dim">:~$ </span>
+          <span className="text-fg-primary">./contact.sh</span>
+        </div>
+        <div className="text-fg-primary text-xs sm:text-sm mb-4">
+          Open to AI engineering roles, full-stack development, and interesting
+          projects.
+        </div>
+        <div className="text-border text-xs mb-3">{"─".repeat(72)}</div>
+        <div className="flex flex-wrap gap-x-5 gap-y-2">
+          <a
+            href={`mailto:${profile.email}`}
+            className="text-fg-cyan hover:text-fg-green underline decoration-dotted underline-offset-2 transition-colors text-xs sm:text-sm"
+          >
+            📧 {profile.email}
+          </a>
+          <a
+            href={profile.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-fg-cyan hover:text-fg-green underline decoration-dotted underline-offset-2 transition-colors text-xs sm:text-sm"
+          >
+            💼 LinkedIn
+          </a>
+          <a
+            href={profile.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-fg-cyan hover:text-fg-green underline decoration-dotted underline-offset-2 transition-colors text-xs sm:text-sm"
+          >
+            📦 GitHub
+          </a>
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            className="text-fg-cyan hover:text-fg-green underline decoration-dotted underline-offset-2 transition-colors text-xs sm:text-sm"
+          >
+            📄 Resume
+          </a>
+        </div>
+      </TerminalSection>
+    </div>
   );
 }
