@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { SITE_TITLE, SITE_DESCRIPTION } from "@/lib/constants";
+import ParticleBackground from "@/components/ParticleBackground";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -25,6 +26,7 @@ export default function RootLayout({
       className={`${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="h-full bg-bg-primary text-fg-primary font-mono">
+        <ParticleBackground />
         {children}
       </body>
     </html>
