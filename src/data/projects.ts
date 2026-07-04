@@ -10,26 +10,35 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    name: "AI Resume Builder",
-    description: "A full-stack AI-powered resume builder built with the MERN stack. Features dynamic resume generation with customizable templates, responsive UI, and integrated backend APIs for efficient data handling and storage.",
-    tech: ["MongoDB", "Express.js", "React.js", "Node.js", "REST APIs", "JWT", "Tailwind CSS"],
+    name: "FormSahay",
+    description: "A full-stack AI-powered platform that simplifies government forms and scholarship applications through intelligent notice analysis and eligibility checking.",
+    tech: ["MongoDB", "Express.js", "React.js", "Node.js", "OCR", "Gemini API"],
     bullets: [
-      "Full-stack AI-powered resume builder with MERN stack",
-      "Dynamic resume generation with customizable templates",
-      "Responsive and user-friendly interface",
-      "Integrated backend APIs for data handling and storage",
+      "Developed an AI-powered platform that simplifies government forms and scholarship applications",
+      "Integrated OCR and AI to extract, analyze, and explain complex government notices",
+      "Built REST APIs and a responsive dashboard for document management and deadline tracking",
+    ],
+    github: "https://github.com/mohdarshadd/formsahay",
+  },
+  {
+    name: "AI Resume Builder",
+    description: "A full-stack AI-powered resume builder using the MERN stack with Gemini API integration for AI-generated resume content.",
+    tech: ["MongoDB", "Express.js", "React.js", "Node.js", "Gemini API", "JWT"],
+    bullets: [
+      "Integrated Gemini API for AI-generated resume content and suggestions",
+      "Implemented customizable ATS-friendly templates with real-time preview",
+      "Designed responsive UI for creating and exporting professional resumes",
     ],
     github: "https://github.com/mohdarshadd/ai-resume-builder",
   },
   {
     name: "Symbi-City",
-    description: "A 3D smart city platform with interactive real-world service simulations. Features a smart pod booking system, immersive hubs, and a modern dark-mode UI. Hackathon winning project.",
+    description: "A 3D smart city platform with interactive real-world service simulations and immersive user experiences.",
     tech: ["React.js", "Three.js", "Node.js", "MongoDB", "WebSockets"],
     bullets: [
-      "3D smart city platform with interactive real-world simulations",
-      "Smart pod booking with real-time availability",
-      "Immersive hubs: Clinic, School, Office, Social, Entertainment",
-      "Dark-mode UI with smooth animations and futuristic design",
+      "3D smart city platform with interactive simulations and immersive experiences",
+      "Smart pod booking system with real-time availability and navigation",
+      "Hackathon winning project with dark-mode UI and futuristic design",
     ],
     github: "https://github.com/mohdarshadd/symbi-city",
     hackathonWinner: true,
