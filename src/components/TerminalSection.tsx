@@ -24,7 +24,7 @@ export function TerminalSection({
           </span>
         </div>
       </div>
-      <div className="p-4 sm:p-5 font-mono text-sm sm:text-base leading-relaxed overflow-x-auto">
+      <div className="p-4 sm:p-5 font-mono text-sm sm:text-base leading-relaxed">
         {children}
       </div>
     </div>

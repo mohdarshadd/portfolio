@@ -175,7 +175,7 @@ export default function Portfolio() {
           <span className="text-fg-dim">:~$ </span>
           <span className="text-fg-primary">cat skills.json</span>
         </div>
-        <div className="text-xs sm:text-sm leading-relaxed whitespace-pre font-mono">
+        <div className="text-xs sm:text-sm leading-relaxed whitespace-pre-wrap font-mono">
           <span className="text-fg-dim">{`{\n`}</span>
           {technicalSkills.map((cat, i) => (
             <span key={i}>
