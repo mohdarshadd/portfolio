@@ -24,7 +24,7 @@ export default function ParticleBackground() {
 
     let animId: number;
     let particles: Particle[] = [];
-    const COUNT = 60;
+    const COUNT = 120;
 
     function resize() {
       canvas!.width = window.innerWidth;
@@ -40,7 +40,7 @@ export default function ParticleBackground() {
           vx: (Math.random() - 0.5) * 0.2,
           vy: (Math.random() - 0.5) * 0.2,
           size: Math.random() * 1.5 + 0.5,
-          opacity: Math.random() * 0.15 + 0.05,
+          opacity: Math.random() * 0.25 + 0.1,
           hue: Math.random() * 60 + 120,
         });
       }
