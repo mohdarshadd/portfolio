@@ -145,6 +145,11 @@ export default function Portfolio() {
                   🏆 Winner
                 </span>
               )}
+              {p.ongoing && (
+                <span className="text-[10px] sm:text-xs text-fg-cyan border border-fg-cyan/30 px-1.5 py-0.5 rounded">
+                  ● Ongoing
+                </span>
+              )}
             </div>
             <div className="text-fg-primary text-xs sm:text-sm mb-2">
               {p.description}

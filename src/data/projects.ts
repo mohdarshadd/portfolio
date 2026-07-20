@@ -6,6 +6,7 @@ export interface Project {
   github?: string;
   live?: string;
   hackathonWinner?: boolean;
+  ongoing?: boolean;
 }
 
 export const projects: Project[] = [
@@ -31,6 +32,7 @@ export const projects: Project[] = [
       "Developed a 60 FPS Canvas rendering engine with directional vehicle indicators, dark/light theme support, and fullscreen mode",
     ],
     github: "https://github.com/Eswaran321/fleetdash",
+    ongoing: true,
   },
   {
     name: "AI Resume Builder",
