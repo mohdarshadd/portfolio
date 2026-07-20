@@ -21,6 +21,18 @@ export const projects: Project[] = [
     github: "https://github.com/B2Aryan/FormSahay_Portal",
   },
   {
+    name: "FleetDash",
+    description: "A real-time fleet telemetry dashboard that ingests GPS/sensor data from vehicles through a decoupled Express pipeline, processes it with worker threads, stores it in MongoDB using the Bucket Pattern, and broadcasts live positions via Redis Pub/Sub and Socket.io binary ArrayBuffer transport to a 60 FPS Canvas map.",
+    tech: ["MongoDB", "Express.js", "React.js", "Node.js", "Redis", "Socket.io", "TypeScript", "Canvas API"],
+    bullets: [
+      "Built a decoupled ingestion pipeline using worker_threads for CPU-bound GPS parsing with Haversine distance calculations",
+      "Implemented Redis Pub/Sub with binary ArrayBuffer transport over Socket.io for high-frequency real-time telemetry broadcast",
+      "Designed an hourly MongoDB Bucket Pattern for efficient time-series storage with TTL-based auto-expiry",
+      "Developed a 60 FPS Canvas rendering engine with directional vehicle indicators, dark/light theme support, and fullscreen mode",
+    ],
+    github: "https://github.com/Eswaran321/fleetdash",
+  },
+  {
     name: "AI Resume Builder",
     description: "A full-stack AI-powered resume builder using the MERN stack with Gemini API integration for AI-generated resume content.",
     tech: ["MongoDB", "Express.js", "React.js", "Node.js", "Gemini API", "JWT"],
